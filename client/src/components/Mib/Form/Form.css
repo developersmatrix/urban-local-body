@@ -1,0 +1,9 @@
+.label-mib {
+  margin-right: 1.6rem;
+}
+
+.form-control__select {
+  background-color: #ddd;
+  padding: 0.4rem 1.6rem;
+  border: none;
+}

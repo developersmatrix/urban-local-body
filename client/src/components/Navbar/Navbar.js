@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import "./Navbar.css";
 import logo from "./logo.png";
 
@@ -7,51 +9,51 @@ const Navbar = () => {
   return (
     // HEADER
 
-    <header class="header">
+    <header className="header">
       {/* <!-- LOGO --> */}
-      <div class="logo">
-        <a href={url} class="logo-link">
+      <div className="logo">
+        <Link to="/" className="logo-link">
           <img
             src={logo}
             alt="Town Panchayath Virajpet Logo"
-            class="logo-img"
+            className="logo-img"
           />
           virajpet
-        </a>
+        </Link>
       </div>
       {/*  Main Navigation  */}
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li class="nav-list__item">
-            <a class="nav-link" href="index.html">
+      <nav className="main-nav">
+        <ul className="nav-list">
+          <li className="nav-list__item">
+            <Link className="nav-link" to="/">
               Dashboard
-            </a>
+            </Link>
           </li>
-          <li class="nav-list__item">
-            <a class="nav-link" href="mib.html">
+          <li className="nav-list__item">
+            <Link className="nav-link" to="/mib">
               MIB
-            </a>
+            </Link>
           </li>
-          <li class="nav-list__item">
-            <a class="nav-link" href={url}>
+          <li className="nav-list__item">
+            <Link className="nav-link" href={url}>
               Work Schemes
-            </a>
+            </Link>
           </li>
-          <li class="nav-list__item">
-            <a class="nav-link" href={url}>
+          <li className="nav-list__item">
+            <Link className="nav-link" href={url}>
               Housing
-            </a>
+            </Link>
           </li>
-          <li class="nav-list__item">
-            <a class="nav-link" href={url}>
+          <li className="nav-list__item">
+            <Link className="nav-link" href={url}>
               Miscellaneous
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>
 
-      <div class="nav-toggle">
-        <div class="hamburger"></div>
+      <div className="nav-toggle">
+        <div className="hamburger"></div>
       </div>
     </header>
   );

@@ -41,9 +41,3 @@ ul,
 ol {
   list-style: none;
 }
-
-/* dummy div to cover height of navigation bar  */
-.dummy {
-  width: 100%;
-  height: 6.4rem;
-}

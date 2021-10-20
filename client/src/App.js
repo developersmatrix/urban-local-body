@@ -1,18 +1,30 @@
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
 import Navbar from "./components/Navbar/Navbar";
-import Sidebar from "./components/Sidebar/Sidebar";
 import Dummy from "./components/Dummy/Dummy";
+import Mib from "./components/Mib/Mib";
 
 import "./App.css";
 
 const App = () => {
   return (
-    <div className="App">
-      <Navbar />
-      <Dummy />
-      <Sidebar />
-
-      <p>ಪಟ್ಟಣ ಪಂಚಾಯಿತಿ ವಿರಾಜಪೇಟೆ </p>
-    </div>
+    <Router>
+      <div className="App">
+        <Navbar />
+        <Dummy />
+        <Switch>
+          {/* <Route exact path="/">
+            <Home />
+          </Route> */}
+          <Route path="/mib">
+            <Mib />
+          </Route>
+          {/* <Route path="/dashboard">
+            <Dashboard />
+          </Route> */}
+        </Switch>
+      </div>
+    </Router>
   );
 };
 

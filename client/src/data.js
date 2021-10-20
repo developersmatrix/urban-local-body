@@ -1,0 +1,33 @@
+const ptax = {
+  totalNumberOfProperty: 4546,
+  openingBalance: 6.86,
+  currentYearDemand: 101.35,
+  totalDemand: 108.21,
+  // amount recovered in april from Opening Balance
+  amtR04OB: 1.21,
+  // amount recover in april from current year Demand
+  amtR04CYD: 8.36,
+
+  amtR05OB: 0.42,
+  amtR05CYD: 7.08,
+  amtR06OB: 0.52,
+  amtR06CYD: 7.24,
+  amtR07OB: 0.25,
+  amtR07CYD: 6.5,
+  amtR08OB: 0.27,
+  amtR08CYD: 6.9,
+  amtR09OB: 2.69,
+  amtR09CYD: 7.05,
+  amtR10OB: 0,
+  amtR10CYD: 0,
+  amtR11OB: 0,
+  amtR11CYD: 0,
+  amtR12OB: 0,
+  amtR12CYD: 0,
+  amtR01OB: 0,
+  amtR01CYD: 0,
+  amtR02OB: 0,
+  amtR02CYD: 0,
+  amtR03OB: 0,
+  amtR03CYD: 0,
+};
