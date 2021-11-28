@@ -1,0 +1,12 @@
+.container__general {
+  margin: 1rem;
+  border: 1px solid aqua;
+}
+
+.form__container {
+  display: flex;
+}
+
+/* .input__container {
+  display: flex;
+} */

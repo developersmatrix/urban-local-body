@@ -1,19 +1,18 @@
-import express from 'express';
-import morgan from 'morgan';
+import express from "express";
+import morgan from "morgan";
 
 // custom middlewares
-import { cors } from './controllers/cors.js';
-import { customError, serverError } from './controllers/errors.js';
-import { databaseConnection } from './controllers/mongoose.js';
+import { cors } from "./controllers/cors.js";
+import { customError, serverError } from "./controllers/errors.js";
+import { databaseConnection } from "./controllers/mongoose.js";
+
+import propertyTaxRouter from "./routes/propertyTax.js";
 
 // routes
-import postRoutes from './routes/posts.js';
-
 const app = express();
 
-
 // for logging information during development
-app.use(morgan('dev'));
+app.use(morgan("dev"));
 
 // connect to database
 databaseConnection();
@@ -25,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors);
 
 // routes
-app.use('/', postRoutes);
+app.use("/propertytax", propertyTaxRouter);
 
 // error handling
 app.use(customError);

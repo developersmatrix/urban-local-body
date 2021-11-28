@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import Dummy from "./components/Dummy/Dummy";
 import Mib from "./components/Mib/Mib";
+import CollectionUpdate from "./components/UpdationComponents/CollectionUpdate/CollectionUpdate";
 
 import "./App.css";
 
@@ -23,6 +24,7 @@ const App = () => {
             <Dashboard />
           </Route> */}
         </Switch>
+        <CollectionUpdate />
       </div>
     </Router>
   );
