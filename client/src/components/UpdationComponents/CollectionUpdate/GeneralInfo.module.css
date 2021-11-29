@@ -3,10 +3,34 @@
   border: 1px solid aqua;
 }
 
-.form__container {
-  display: flex;
+.heading__primary {
+  text-align: center;
 }
 
-/* .input__container {
+.form__general--info {
   display: flex;
-} */
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.input__container {
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 0.4rem 0.8rem;
+}
+
+.submit__button {
+  margin: 1.6rem;
+  display: flex;
+  justify-content: center;
+}
+
+.submit__button button {
+  padding: 0.8rem 2.4rem;
+  font-weight: 600;
+}
