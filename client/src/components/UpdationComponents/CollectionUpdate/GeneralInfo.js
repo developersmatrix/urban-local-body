@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./GeneralInfo.module.css";
 
 const GeneralInfo = () => {
+  const [noProps, setNoProps] = useState("");
+  const [openingBalance, setOpeningBalance] = useState("");
+  const [currentYearDemand, setCurrentYearDemand] = useState("");
+  const [totalDemand, setTotalDemand] = useState("");
+
+  const noPropsHandler = (event) => {
+    setNoProps(event.target.value);
+  };
+
+  const openingBalanceHandler = (event) => {
+    setOpeningBalance(event.target.value);
+    setTotalDemand(Number(event.target.value) + Number(currentYearDemand));
+  };
+
+  const currentYearDemandHandler = (event) => {
+    setCurrentYearDemand(event.target.value);
+    setTotalDemand(Number(openingBalance) + Number(event.target.value));
+  };
+
   return (
     <div className={styles.container__general}>
       <div className={styles.heading__primary}>
@@ -11,20 +30,40 @@ const GeneralInfo = () => {
       <form>
         <div className={styles["form__general--info"]}>
           <div className={styles.input__container}>
-            <label for="totalnoofproperties">Total No of properties</label>
-            <input type="text" id="totalnoofproperties" />
+            <label htmlFor="totalnoofproperties">Total No of properties</label>
+            <input
+              type="number"
+              id="totalnoofproperties"
+              value={noProps}
+              onChange={noPropsHandler}
+            />
           </div>
           <div className={styles.input__container}>
-            <label for="openingbalance">Opening Balance</label>
-            <input type="text" id="openingbalance" />
+            <label htmlFor="openingbalance">Opening Balance</label>
+            <input
+              type="number"
+              id="openingbalance"
+              value={openingBalance}
+              onChange={openingBalanceHandler}
+            />
           </div>
           <div className={styles.input__container}>
-            <label for="currentyeardemand">Current year Demand</label>
-            <input type="text" id="currentyeardemand" />
+            <label htmlFor="currentyeardemand">Current year Demand</label>
+            <input
+              type="number"
+              id="currentyeardemand"
+              value={currentYearDemand}
+              onChange={currentYearDemandHandler}
+            />
           </div>
           <div className={styles.input__container}>
-            <label for="totaldemand">Total Demand</label>
-            <input type="text" id="totaldemand" disabled />
+            <label htmlFor="totaldemand">Total Demand</label>
+            <input
+              type="number"
+              id="totaldemand"
+              disabled
+              value={totalDemand}
+            />
           </div>
         </div>
         <div className={styles.submit__button}>

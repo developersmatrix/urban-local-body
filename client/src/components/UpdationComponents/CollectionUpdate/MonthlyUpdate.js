@@ -20,31 +20,50 @@ const MonthlyUpdate = () => {
   ];
 
   return (
-    <div className={styles.container}>
-      <div className={styles.input__container}>
-        <select className={styles.select__year} name="Year">
-          <option value="">Year</option>
-          {years.map((year) => (
-            <option value={year}>{year}</option>
-          ))}
-        </select>
-        <select className={styles.select__month}>
-          <option value="">Month</option>
-          {months.map((month) => (
-            <option value={month}>{month}</option>
-          ))}
-        </select>
-        <div>
-          <label htmlFor="ob">OB Collection</label>
-          <input type="text" />
+    <div className={styles["container__monthly--update"]}>
+      <form onSubmit={null}>
+        <div className={styles.select__container}>
+          <label htmlFor="year">Year</label>
+          <select name="year" id="year">
+            <option value="">Year</option>
+            {years.map((year, index) => (
+              <option key={index} value={year}>
+                {year}
+              </option>
+            ))}
+          </select>
         </div>
-        <div>
-          <label htmlFor="cyd">Current Year Demand Collection</label>
-          <input type="text" />
+
+        <div className={styles.select__container}>
+          <label htmlFor="month">Month</label>
+          <select name="month" id="month">
+            <option value="">Month</option>
+            {months.map((month, index) => (
+              <option key={index} value={month}>
+                {month}
+              </option>
+            ))}
+          </select>
         </div>
-        <div>
-          <button>Update</button>
+
+        <div className={styles.select__container}>
+          <label htmlFor="ob">Collection from Opening Balance</label>
+          <input type="number" />
         </div>
+        <div className={styles.select__container}>
+          <label htmlFor="cyd">Collection from Current Year Demand</label>
+          <input type="number" />
+        </div>
+        <div className={styles.select__container}>
+          <label htmlFor="tc">Total Collection</label>
+          <input type="number" disabled />
+        </div>
+        <div className={styles.button_container}>
+          <button type="submit">edit</button>
+        </div>
+      </form>
+      <div className={styles["add__button--container"]}>
+        <button>Add</button>
       </div>
     </div>
   );

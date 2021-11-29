@@ -4,7 +4,7 @@ import "./Navbar.css";
 import logo from "./logo.png";
 
 const Navbar = () => {
-  const url = "";
+  const url = " ";
 
   return (
     // HEADER
@@ -35,17 +35,17 @@ const Navbar = () => {
             </Link>
           </li>
           <li className="nav-list__item">
-            <Link className="nav-link" href={url}>
+            <Link className="nav-link" to={url}>
               Work Schemes
             </Link>
           </li>
           <li className="nav-list__item">
-            <Link className="nav-link" href={url}>
+            <Link className="nav-link" to={url}>
               Housing
             </Link>
           </li>
           <li className="nav-list__item">
-            <Link className="nav-link" href={url}>
+            <Link className="nav-link" to={url}>
               Miscellaneous
             </Link>
           </li>
