@@ -2,11 +2,18 @@ import React, { useState } from "react";
 
 import styles from "./GeneralInfo.module.css";
 
-const GeneralInfo = () => {
-  const [noProps, setNoProps] = useState("");
-  const [openingBalance, setOpeningBalance] = useState("");
-  const [currentYearDemand, setCurrentYearDemand] = useState("");
-  const [totalDemand, setTotalDemand] = useState("");
+const GeneralInfo = (props) => {
+  const [noProps, setNoProps] = useState(props.data.totalNumberOfProperty);
+  const [openingBalance, setOpeningBalance] = useState(
+    props.data.openingBalance
+  );
+  const [currentYearDemand, setCurrentYearDemand] = useState(
+    props.data.currentYearDemand
+  );
+  const [totalDemand, setTotalDemand] = useState(
+    +openingBalance + +currentYearDemand
+  );
+  const [isDisabled, setIsDisabled] = useState(false);
 
   const noPropsHandler = (event) => {
     setNoProps(event.target.value);
@@ -19,15 +26,39 @@ const GeneralInfo = () => {
 
   const currentYearDemandHandler = (event) => {
     setCurrentYearDemand(event.target.value);
-    setTotalDemand(Number(openingBalance) + Number(event.target.value));
+    setTotalDemand(+openingBalance + +event.target.value);
+  };
+
+  const submitHandler = (event) => {
+    event.preventDefault();
+    if (
+      noProps.trim().length === 0 ||
+      openingBalance.trim().length === 0 ||
+      currentYearDemand.trim().length === 0
+    ) {
+      return;
+    }
+
+    if (!isDisabled) {
+      const ptax = {
+        ...props.data,
+        totalNumberOfProperty: noProps,
+        openingBalance: openingBalance,
+        currentYearDemand: currentYearDemand,
+      };
+      props.updatePtax(ptax);
+      setIsDisabled(true);
+    } else {
+      setIsDisabled(false);
+    }
   };
 
   return (
     <div className={styles.container__general}>
       <div className={styles.heading__primary}>
-        <h1>Property Tax Collection</h1>
+        <h1>Property Tax Collection - {props.data.year}</h1>
       </div>
-      <form>
+      <form onSubmit={submitHandler}>
         <div className={styles["form__general--info"]}>
           <div className={styles.input__container}>
             <label htmlFor="totalnoofproperties">Total No of properties</label>
@@ -36,6 +67,7 @@ const GeneralInfo = () => {
               id="totalnoofproperties"
               value={noProps}
               onChange={noPropsHandler}
+              disabled={isDisabled}
             />
           </div>
           <div className={styles.input__container}>
@@ -45,6 +77,7 @@ const GeneralInfo = () => {
               id="openingbalance"
               value={openingBalance}
               onChange={openingBalanceHandler}
+              disabled={isDisabled}
             />
           </div>
           <div className={styles.input__container}>
@@ -54,6 +87,7 @@ const GeneralInfo = () => {
               id="currentyeardemand"
               value={currentYearDemand}
               onChange={currentYearDemandHandler}
+              disabled={isDisabled}
             />
           </div>
           <div className={styles.input__container}>
@@ -61,13 +95,13 @@ const GeneralInfo = () => {
             <input
               type="number"
               id="totaldemand"
-              disabled
+              disabled={true}
               value={totalDemand}
             />
           </div>
         </div>
         <div className={styles.submit__button}>
-          <button type="submit">Update</button>
+          <button type="submit">{isDisabled ? "Edit" : "Update"}</button>
         </div>
       </form>
     </div>

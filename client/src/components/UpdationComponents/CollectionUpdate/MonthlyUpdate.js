@@ -2,7 +2,7 @@ import React from "react";
 
 import styles from "./MonthlyUpdate.module.css";
 
-const MonthlyUpdate = () => {
+const MonthlyUpdate = (props) => {
   const years = [2020, 2021, 2022, 2023, 2024, 2025];
   const months = [
     "January",

@@ -5,6 +5,8 @@ import Dummy from "./components/Dummy/Dummy";
 import Mib from "./components/Mib/Mib";
 import CollectionUpdate from "./components/UpdationComponents/CollectionUpdate/CollectionUpdate";
 
+import { ptax } from "./data";
+
 import "./App.css";
 
 const App = () => {
@@ -24,7 +26,7 @@ const App = () => {
             <Dashboard />
           </Route> */}
         </Switch>
-        <CollectionUpdate />
+        <CollectionUpdate data={ptax} />
       </div>
     </Router>
   );
