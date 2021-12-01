@@ -13,7 +13,7 @@ const CollectionUpdate = (props) => {
   return (
     <div className={styles.container}>
       <GeneralInfo data={props.data} updatePtax={updatePtaxHandler} />
-      <MonthlyUpdate data={props.data} />
+      <MonthlyUpdate data={props.data.monthlyCollection} />
     </div>
   );
 };

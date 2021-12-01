@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./MonthlyUpdate.module.css";
 
 const MonthlyUpdate = (props) => {
+  const [OBCollection, setOBCollection] = useState(props.data[0].OBCollection);
+
   const years = [2020, 2021, 2022, 2023, 2024, 2025];
   const months = [
     "January",
@@ -19,9 +21,14 @@ const MonthlyUpdate = (props) => {
     "December",
   ];
 
+  const onSubmitHandler = (event) => {
+    event.preventDefault();
+    console.log(OBCollection);
+  };
+
   return (
     <div className={styles["container__monthly--update"]}>
-      <form onSubmit={null}>
+      <form onSubmit={onSubmitHandler}>
         <div className={styles.select__container}>
           <label htmlFor="year">Year</label>
           <select name="year" id="year">
@@ -48,7 +55,7 @@ const MonthlyUpdate = (props) => {
 
         <div className={styles.select__container}>
           <label htmlFor="ob">Collection from Opening Balance</label>
-          <input type="number" />
+          <input type="number" value={OBCollection} />
         </div>
         <div className={styles.select__container}>
           <label htmlFor="cyd">Collection from Current Year Demand</label>
