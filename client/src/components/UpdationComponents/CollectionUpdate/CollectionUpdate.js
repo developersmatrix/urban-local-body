@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 
 import GeneralInfo from "./GeneralInfo";
 import MonthlyUpdate from "./MonthlyUpdate";
@@ -9,6 +9,9 @@ const CollectionUpdate = (props) => {
   const updatePtaxHandler = (data) => {
     console.log(data);
   };
+
+  // const monthlyCollection = props.data.monthlyCollection;
+  // console.log(monthlyCollection);
 
   return (
     <div className={styles.container}>

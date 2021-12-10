@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import Input from "../../UI/Input/Input";
+
 import styles from "./GeneralInfo.module.css";
 
 const GeneralInfo = (props) => {
@@ -7,6 +9,7 @@ const GeneralInfo = (props) => {
   const [openingBalance, setOpeningBalance] = useState(
     props.data.openingBalance
   );
+
   const [currentYearDemand, setCurrentYearDemand] = useState(
     props.data.currentYearDemand
   );
@@ -56,49 +59,49 @@ const GeneralInfo = (props) => {
   return (
     <div className={styles.container__general}>
       <div className={styles.heading__primary}>
-        <h1>Property Tax Collection - {props.data.year}</h1>
+        <h1>Property Tax Collection - {props.data.financialYear}</h1>
       </div>
       <form onSubmit={submitHandler}>
         <div className={styles["form__general--info"]}>
-          <div className={styles.input__container}>
-            <label htmlFor="totalnoofproperties">Total No of properties</label>
-            <input
-              type="number"
-              id="totalnoofproperties"
-              value={noProps}
-              onChange={noPropsHandler}
-              disabled={isDisabled}
-            />
-          </div>
-          <div className={styles.input__container}>
-            <label htmlFor="openingbalance">Opening Balance</label>
-            <input
-              type="number"
-              id="openingbalance"
-              value={openingBalance}
-              onChange={openingBalanceHandler}
-              disabled={isDisabled}
-            />
-          </div>
-          <div className={styles.input__container}>
-            <label htmlFor="currentyeardemand">Current year Demand</label>
-            <input
-              type="number"
-              id="currentyeardemand"
-              value={currentYearDemand}
-              onChange={currentYearDemandHandler}
-              disabled={isDisabled}
-            />
-          </div>
-          <div className={styles.input__container}>
-            <label htmlFor="totaldemand">Total Demand</label>
-            <input
-              type="number"
-              id="totaldemand"
-              disabled={true}
-              value={totalDemand}
-            />
-          </div>
+          <Input
+            className={styles.test}
+            label="Total No of properties"
+            type="number"
+            id="totalnoofproperties"
+            value={noProps}
+            onChange={noPropsHandler}
+            disabled={isDisabled}
+          />
+
+          <Input
+            className={styles.test}
+            label="Opening Balance"
+            type="number"
+            id="openingbalance"
+            value={openingBalance}
+            onChange={openingBalanceHandler}
+            disabled={isDisabled}
+          />
+
+          <Input
+            className={styles.test}
+            label="Current year Demand"
+            type="number"
+            id="currentyearDemand"
+            value={currentYearDemand}
+            onChange={currentYearDemandHandler}
+            disabled={isDisabled}
+          />
+
+          <Input
+            className={styles.test}
+            label="Total Demand"
+            type="number"
+            id="totalDemand"
+            value={totalDemand}
+            onChange={currentYearDemandHandler}
+            disabled={true}
+          />
         </div>
         <div className={styles.submit__button}>
           <button type="submit">{isDisabled ? "Edit" : "Update"}</button>

@@ -10,14 +10,17 @@
 .form__general--info {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.6rem;
+  gap: 4.8rem;
   justify-content: center;
   align-items: center;
 }
 
-.input__container {
-  display: flex;
-  flex-direction: column;
+.form__general--info div {
+  flex-basis: 32%;
+}
+
+.test label {
+  color: palegreen;
 }
 
 input {
@@ -33,6 +36,7 @@ input {
 .submit__button button {
   padding: 0.8rem 2.4rem;
   font-weight: 600;
+  transition: width 2000ms ease-in-out;
 }
 
 input[type="number"][disabled] {
